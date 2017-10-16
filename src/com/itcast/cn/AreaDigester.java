@@ -17,7 +17,7 @@ public class AreaDigester {
 	}
 	public ViewCache digester(){
 		Digester digester = new Digester();
-		
+		digester.setValidating(false);
 		//Add an "object create" rule for the specified parameters.
 		digester.addObjectCreate("viewcache/areas", ViewCache.class);
 		// 指明匹配模式和要创建的类
