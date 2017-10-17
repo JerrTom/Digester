@@ -15,6 +15,8 @@ public class DigesterXmlRuleTest {
             //Library library = (Library) digester.parse(MainTest.class.getResourceAsStream("books.xml"));
 			/**
 			 * Exception in thread "main" org.apache.commons.digester.xmlrules.XmlLoadException
+			 * Digester3中舍弃了createDigester方法，所以该case使用的是commons-digester-2.1.jar包，其余的case使用的是
+			 * commons-digester3-3.2.jar包
 			 */
 			Digester digester = DigesterLoader.createDigester(DigesterXmlRuleTest.class.getResource("books-rule.xml"));
 			Library library = (Library) digester.parse(DigesterXmlRuleTest.class.getResourceAsStream("books.xml"));
