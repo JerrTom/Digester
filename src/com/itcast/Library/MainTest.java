@@ -46,9 +46,9 @@ public class MainTest {
          * 同样是设置对象的属性,但是方式更加灵活,不需要对象具有setter
          * 当paraNumber = 0时,可以单独使用(表明为标签的值来调用),不然需要配合addCallParam方法
         */
-        // digester.addBeanPropertySetter("library/book/chapter/caption");
+        digester.addBeanPropertySetter("library/book/chapter/caption");
         // 下面的方法，可以用来代替上一句，作用是一样的 
-        digester.addCallMethod("library/book/chapter/caption", "setCaption", 0);
+        //digester.addCallMethod("library/book/chapter/caption", "setCaption", 0);
 
         // addSetNext()是说在再次遇到匹配节点后， 调用当前对象(Chapter类的对象)的父对象(Book类的对象)的方法，方法参数是当前层元素的对象
         digester.addSetNext("library/book/chapter", "addChapter");
