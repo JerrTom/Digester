@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE digester-rules PUBLIC
+         "-//Jakarta Apache //DTD digester-rules XML V1.0//EN"
+         "digester-rules.dtd"> 
+<digester-rules>
+	<pattern value="library">
+		<object-create-rule classname="com.itcast.Library.Library"/>
+		<set-properties-rule>
+			<alias attr-name="name" prop-name="name"/>
+		</set-properties-rule>
+	</pattern>
+	<pattern value="library/book">
+		<object-create-rule classname="com.itcast.Library.Book"/>
+		<set-properties-rule>
+			<alias attr-name="title" prop-name="title"/>
+			<alias attr-name="author" prop-name="author"/>
+		</set-properties-rule>
+		<pattern value="library/book/chapter">
+			<object-create-rule classname="com.itcast.Library.Chapter"/>
+			<bean-property-setter-rule pattern="no" propertyname="no"/>
+			<bean-property-setter-rule pattern="caption" propertyname="caption"/>
+			<set-next-rule methodname="addChapter"/>
+		</pattern>
+		<set-next-rule methodname="addBook"/>	
+	</pattern>
+</digester-rules>
